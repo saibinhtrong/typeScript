@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1 update3",
+      "desc": "Description 1",
+      "image": "https://picsum.photos/150/150",
+      "decs": "rtweiothwre"
+    },
+    {
+      "id": 2,
+      "name": "Product 2 update3",
+      "desc": "Description 2",
+      "image": "https://picsum.photos/150/150",
+      "decs": " fgdg"
+    },
+    {
+      "id": 3,
+      "name": "new product update2",
+      "desc": "Description 3",
+      "image": "https://picsum.photos/150/150",
+      "decs": " fgdg"
+    },
+    {
+      "name": "tretr update",
+      "desc": "eretre",
+      "image": "https://picsum.photos/150/150",
+      "id": 4,
+      "decs": "ẻqwrwqr"
+    }
+  ]
+}
