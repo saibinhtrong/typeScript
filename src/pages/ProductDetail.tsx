@@ -7,13 +7,15 @@ interface IProps{
       
 const ProductDetail = (props: IProps) => {
         const {id} = useParams()
-        const [product, setProduct] = useState<IProduct[]>({});
+        const [product, setProduct] = useState({});
         useEffect(( ) =>{
                 const currentProduct = props.products.find(item => item.id === Number(id))
                 setProduct(currentProduct)
         },[props])
   return (
     <div>
+       
+        <img src={product?.image} alt="" />
         <h2>{product?.name}</h2>
         <p>{product?.price}</p>
     </div>

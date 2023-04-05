@@ -1,74 +1,45 @@
 {
+  "user":[
+    {
+      "email": "",
+      "password": ""
+    }
+  ],
   "products": [
     {
-      "id": 1,
-      "name": "json update10001",
-      "price": 432
-    },
-    {
-      "id": 4,
-      "name": "json",
-      "price": 432
-    },
-    {
-      "id": 3,
-      "name": "json",
-      "price": 432
-    },
-    {
-      "id": 2,
-      "name": "json update1000",
-      "price": 432
-    },
-    {
-      "name": "tretr",
-      "price": "3141",
+      "name": "rtrwt",
+      "price": "5245",
+      "image": "https://picsum.photos/150/150",
+      "desc": "fdasfdddddd",
       "id": 5
     },
     {
-      "name": "tretr",
-      "price": "3141",
+      "name": "rtrwt",
+      "price": "5245",
+      "image": "https://picsum.photos/150/150",
+      "desc": "fdasfdddddd",
       "id": 6
     },
     {
-      "name": "tretr",
-      "price": "3141",
+      "name": "sfdgdfgs",
+      "price": "5423",
+      "image": "https://picsum.photos/150/150",
+      "desc": "gfsdgsd",
       "id": 7
     },
     {
-      "name": "tretr",
-      "price": "3141",
-      "id": 8
+      "id": 8,
+      "name": "fasfd update",
+      "price": "452343",
+      "image": "https://picsum.photos/150/150",
+      "desc": "eretre"
     },
     {
-      "name": "tretr",
-      "price": "3141",
+      "name": "fsfewrdf",
+      "price": "2435325",
+      "image": "https://picsum.photos/150/150",
+      "desc": "dasf",
       "id": 9
-    },
-    {
-      "name": "tretr",
-      "price": "3141",
-      "id": 10
-    },
-    {
-      "name": "gre23",
-      "price": "3141",
-      "id": 11
-    },
-    {
-      "name": "tretr",
-      "price": "3141",
-      "id": 13
-    },
-    {
-      "name": "gfg",
-      "price": "3141",
-      "id": 14
-    },
-    {
-      "name": "gre23",
-      "price": "3141",
-      "id": 15
     }
   ]
 }

@@ -1,26 +1,160 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 import { IProduct } from '../../types/product';
+import { Button, Checkbox, Form, Input } from 'antd';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Link } from 'react-router-dom';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { useNavigate } from 'react-router-dom';
+
 interface IProps{
       products:IProduct[],
       onAdd: (product:IProduct) => void
 }
-const AddProdutct = (props:IProps) => {
-      const {register, handleSubmit} = useForm();
-      const navigate = useNavigate()
-  const onHandSubmit=(data:IProduct) =>{
-       props.onAdd(data)
-       navigate("/admin/products/list")
-  }
 
+const { SubMenu } = Menu;
+
+const { Header, Content, Sider } = Layout;
+
+const items1: MenuProps['items'] = ['1', '2'].map((key) => ({
+  key,
+  label: `nav ${key}`,
+  
+}));
+const item =[
+  { key: '1', label: 'list', url: '/admin/products' },
+  { key: '2', label: 'add', url: '/admin/products/add' },
+
+]
+
+const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
+  (icon, index) => {
+    const key = String(index + 1);
+
+    return {
+      key: `sub${key}`,
+      icon: React.createElement(icon),
+      label: `subnav ${key}`,
+
+      children: new Array(4).fill(null).map((_, j) => {
+        const subKey = index * 4 + j + 1;
+        return {
+          key: subKey,
+          label: `option${subKey}`,
+        };
+      }),
+    };
+  },
+);
+
+const AddProdutct = (props:IProps) => {
+  const navigate = useNavigate()
+const onFinish = (values: any) => {
+  props.onAdd(values);
+  navigate('/admin/products')
+ 
+
+};
+
+const onFinishFailed = (errorInfo: any) => {
+  console.log('Failed:', errorInfo);
+};
+const {
+      token: { colorBgContainer },
+    } = theme.useToken();
 
   return (
-        <form onSubmit={handleSubmit(onHandSubmit)}>
-        <input type="text" placeholder="Product Name" {...register("name")}  />
-        <input type="text" placeholder="Product pricec"  {...register("price")}  />
-        <button type="submit">them</button>
-      </form>
+     
+      <Layout>
+      <Header className="header">
+        <div className="logo" />
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={item} />
+        <Menu
+      theme="dark"
+      mode="horizontal"
+      defaultSelectedKeys={['2']}
+    >
+      {item.map(({ key, url }) => (
+        <Menu.Item key={key}>
+          <Link to={url}></Link>
+        </Menu.Item>
+      ))}
+    </Menu>
+        
+      </Header>
+      <Layout>
+        <Sider width={200} style={{ background: colorBgContainer }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+            items={items2}
+          />
+        </Sider>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>admin</Breadcrumb.Item>
+            <Breadcrumb.Item>products</Breadcrumb.Item>
+            <Breadcrumb.Item>add</Breadcrumb.Item>
+          </Breadcrumb>
+          <Content
+            style={{
+              padding: 100,
+              margin: 0,
+              minHeight: 280,
+              background: colorBgContainer,
+            }}
+          >
+             <Form
+    name="basic"
+    labelCol={{ span: 8 }}
+    wrapperCol={{ span: 16 }}
+    style={{ maxWidth: 600 }}
+    initialValues={{ remember: true }}
+    onFinish={onFinish}
+    onFinishFailed={onFinishFailed}
+    autoComplete="off"
+  >
+    <Form.Item
+      label="name"
+      name="name"
+      rules={[{ required: true, message: 'Please input your name!' }]}
+    >
+      <Input />
+    </Form.Item>
+
+    <Form.Item
+      label="price"
+      name="price"
+      rules={[{ required: true, message: 'Please input your price!' }]}
+    > 
+      <Input />
+    </Form.Item>
+    <Form.Item
+      label="image"
+      name="image"
+      rules={[{ required: true, message: 'Please input your image!' }]}
+    > 
+      <Input />
+    </Form.Item>
+    <Form.Item
+      label="desc"
+      name="desc"
+      rules={[{ required: true, message: 'Please input your description!' }]}
+    > 
+      <Input />
+    </Form.Item>
+    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Button type="primary" htmlType="submit">
+        Thêm
+      </Button>
+    </Form.Item>
+  </Form>
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
   )
 }
 
