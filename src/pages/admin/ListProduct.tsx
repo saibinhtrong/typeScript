@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import type { ColumnsType } from 'antd/es/table';
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme, Table, Space, Button, Image } from "antd";
+import { Breadcrumb, Layout, Menu, theme, Table, Space, Button } from "antd";
 import { Link } from 'react-router-dom'
 
 // layout
@@ -95,9 +95,11 @@ const columns: ColumnsType<DataType> = [
         key: 'action',
         render: (_,record) => (
 
-          <Space size="middle">
-          <Button type="primary" style={{ backgroundColor: 'red' }} onClick={() => removeProduct(record.key)}>Remove</Button>
-          <Button type="primary" ><Link to={`/admin/products/${record.key}/update`}>Update</Link></Button>
+          <Space className="site-button-ghost-wrapper" wrap>
+          <Button type="primary" onClick={() => removeProduct(record.key)} danger ghost>Remove</Button>
+          <Button type="primary" ghost>
+          <Link className="link" to={`/admin/products/${record.key}/update`}>Update</Link></Button>
+         
       </Space>
         ),
     },
@@ -126,6 +128,7 @@ return (
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
+        
       </Breadcrumb>
       <Content
         style={{
@@ -135,9 +138,10 @@ return (
           background: colorBgContainer,
         }}
       >
-         <div>
-        <Button type='primary'><Link to={'/admin/products/add'}>Add New Product</Link></Button>
-        <Table columns={columns} dataSource={data} pagination={{ pageSize: 8 }} />
+         <div >
+        <Button type='primary'><Link className="link" to={'/admin/products/add'}>Add New Product</Link></Button>
+        <Button style={{marginLeft :900}} type='primary'><Link className="link" to={'/'}>Home Page</Link></Button>
+        <Table columns={columns} dataSource={data} pagination={{ pageSize: 4 }} />
     </div>
       </Content>
     </Layout>

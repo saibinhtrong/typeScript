@@ -5,3 +5,6 @@ export interface IProduct {
         image: string;
         desc: string;
       }
+export interface ICategory{
+  
+}     

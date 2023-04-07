@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IProduct } from '../../types/product';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Select } from 'antd';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Link } from 'react-router-dom';
@@ -47,7 +47,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const AddProdutct = (props:IProps) => {
+const AddProdutct = (props: any) => {
   const navigate = useNavigate()
 const onFinish = (values: any) => {
   props.onAdd(values);
@@ -74,11 +74,7 @@ const {
       mode="horizontal"
       defaultSelectedKeys={['2']}
     >
-      {item.map(({ key, url }) => (
-        <Menu.Item key={key}>
-          <Link to={url}></Link>
-        </Menu.Item>
-      ))}
+    
     </Menu>
         
       </Header>
@@ -145,6 +141,13 @@ const {
     > 
       <Input />
     </Form.Item>
+    <Form.Item label="Select" name="categoryId" rules={[{ required: true, message: 'Danh mục không được để trống!' }]}>
+                            <Select>
+                                {props.categories.map((category: any) => {
+                                    return <Select.Option key={category?._id} value={category._id}>{category.name}</Select.Option>
+                                })}
+                            </Select>
+                        </Form.Item>
     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
       <Button type="primary" htmlType="submit">
         Thêm

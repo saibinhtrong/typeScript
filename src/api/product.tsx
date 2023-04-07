@@ -8,10 +8,22 @@ const get =(id:number) =>{
         return instance.get('/products/'+id);
 }
 const create = (product:IProduct) =>{
-        return instance.post('/products', product);
+        const { accessToken } = JSON.parse(localStorage.getItem('user')!)
+        console.log(product)
+        return instance.post("/products/" , product, {
+
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+        });
 }
 const remove = (id:number) =>{
-        return instance.delete('/products/'+id);
+        const { accessToken } = JSON.parse(localStorage.getItem('user')!)
+        return instance.delete("/products/" + id, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+        });
 }
 const update = (product: IProduct) =>{
         return instance.put('/products/'+ product.id, product);

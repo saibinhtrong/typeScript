@@ -1,20 +1,25 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import { signIn } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 type Props = {}
 
 const signin = (props: Props) => {
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors },
+        
     } = useForm();
+    
     const onHandleSubmit = async (data: any) => {
         const { data: user } = await signIn(data);
         console.log("user", user);
         localStorage.setItem("user", JSON.stringify(user));
-
+        
     }
+    
     return (
         <div>
             <form onSubmit={handleSubmit(onHandleSubmit)}>

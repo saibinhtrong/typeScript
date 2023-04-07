@@ -14,7 +14,6 @@ const ProductDetail = (props: IProps) => {
         },[props])
   return (
     <div>
-       
         <img src={product?.image} alt="" />
         <h2>{product?.name}</h2>
         <p>{product?.price}</p>

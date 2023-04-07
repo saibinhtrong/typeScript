@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { IProduct } from '../../types/product'
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
@@ -150,6 +150,7 @@ const UpdateProduct = (props:IProps) => {
               >
                   <Input />
               </Form.Item>
+              
 
 
               <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
