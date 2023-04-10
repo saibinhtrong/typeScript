@@ -4,7 +4,7 @@ import { IProduct } from '../types/product';
 const getAll = () =>{
         return instance.get('/products');
 }
-const get =(id:number) =>{
+const get =(id:number| string) =>{
         return instance.get('/products/'+id);
 }
 const create = (product:IProduct) =>{

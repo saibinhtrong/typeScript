@@ -124,7 +124,7 @@ const UpdateProduct = (props:IProps) => {
               <Form.Item
                   label="Product Name"
                   name="name"
-                  rules={[{ required: true, message: 'Please input your username!' }]}
+                  rules={[{ required: true, message: 'Please input your name!' }]}
               >
                   <Input />
               </Form.Item>
@@ -132,24 +132,31 @@ const UpdateProduct = (props:IProps) => {
               <Form.Item
                   label="Product Price"
                   name="price"
-                  rules={[{ required: true, message: 'Please input your password!' }]}
+                  rules={[{ required: true, message: 'Please input your price!' }]}
               >
                   <Input />
               </Form.Item>
               <Form.Item
                   label="Product image"
                   name="image"
-                  rules={[{ required: true, message: 'Please input your password!' }]}
+                  rules={[{ required: true, message: 'Please input your image!' }]}
               >
                   <Input />
               </Form.Item>
               <Form.Item
                   label="Product desc"
                   name="desc"
-                  rules={[{ required: true, message: 'Please input your password!' }]}
+                  rules={[{ required: true, message: 'Please input your desc!' }]}
               >
                   <Input />
               </Form.Item>
+              <Form.Item label="Select" name="categoryId" rules={[{ required: true, message: 'Danh mục không được để trống!' }]}>
+                            <Select>
+                                {props.categories.map((category: any) => {
+                                    return <Select.Option key={category?._id} value={category._id}>{category.name}</Select.Option>
+                                })}
+                            </Select>
+                        </Form.Item>
               
 
 

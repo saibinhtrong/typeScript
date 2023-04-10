@@ -60,7 +60,7 @@ const ListProduct = (props: IProps) => {
     return {
         key: item.id,
         name: item.name,
-        price: item.price,
+        price: item.price?.toLocaleString(),
         desc: item.desc,
         image: <img width={100} src ={item.image}/>
     }

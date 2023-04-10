@@ -8,7 +8,7 @@ const RootLayout = (props: Props) => {
         <div className='container mx-auto'>
           <header className='header-page'>
       <div className="logo-page">
-        <img src="" alt="logo" />
+        <img src="https://i.imgur.com/CnMww1N.png" alt="logo" />
       </div>
       <nav>
         <ul>
@@ -16,14 +16,15 @@ const RootLayout = (props: Props) => {
           <li><a href="/about">About</a></li>
           <li><a href="/services">Services</a></li>
           <li><a href="/contact">Contact</a></li>
-          <button className='btn-sigin'><a href="/signin">Đăng nhập</a></button>
+          <button className='btn-signup'><a href="/signup">Đăng Ký</a></button>
+          <button className='btn-signin'><a href="/signin">Đăng nhập</a></button>
         </ul>
       </nav>
     </header>                
-            <Outlet  />
+            < Outlet  />
             <footer className='footer'>
-            <div className="logo">
-        <img src="logo.png" alt="logo" />
+            <div className="logo-page">
+        <img src="https://i.imgur.com/CnMww1N.png" alt="logo" />
       </div>
       <div className="social-links">
       <nav>

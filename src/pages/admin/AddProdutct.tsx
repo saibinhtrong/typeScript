@@ -51,6 +51,7 @@ const AddProdutct = (props: any) => {
   const navigate = useNavigate()
 const onFinish = (values: any) => {
   props.onAdd(values);
+ 
   navigate('/admin/products')
  
 

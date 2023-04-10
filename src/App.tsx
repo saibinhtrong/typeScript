@@ -11,6 +11,7 @@ import { ICategory, IProduct } from './types/product'
 import RootLayout from './components/rootLayout'
 import AdminLayout from './components/adminLayout'
 import Signin from './pages/sign/signin'
+import Signup from './pages/sign/singup'
 import './App.css'
 import { getAllCategory } from './api/category'
 function App() {
@@ -25,34 +26,36 @@ function App() {
   useEffect(() => {
     (async () => {
       const { data } = await getAllCategory();
-      console.log(data);
       setCategorys(data);
     })()
   }, []);
-  
+ 
 
 const onHandleRemove =(id: number) =>{
   remove(id).then(() => setProducts(products.filter((item: IProduct)=> item.id !== id)))
+  window.location.reload()
 }
 
 const onHandLeAdd= (product:IProduct) =>{
     create(product)
+   
 }
 const onHandleUpdate= (product:IProduct) =>{
   
-  update(product).then(() => getAll().then(({data}) => setProducts(data)))
+  update(product).then(() => setProducts(products.map(item => item.id == product.id ? product : item)))
 }
   return (
-    <div className="App">
+    <div className="App" >
      <Routes>  
           <Route path='/' element={< RootLayout/>}>
-            <Route index element={<HomePage products={products} />}/>
+            <Route index element={<HomePage products={products}  categories={categorys} />}/>
             <Route path='products' element={<ProductPage products={products}/>}/>
             <Route path='about' element=" about page"/>
             <Route path='services' element=" services page"/>
             <Route path='contact' element=" contact page"/>
             <Route path='products/:id' element={<ProductDetail products={products}/>}/>
             <Route path='signin' element={<Signin/>}/>
+            <Route path='signup' element={<Signup/>}/>
           </Route>
           <Route path='/admin' element={<AdminLayout/>}>
             <Route path='products'>

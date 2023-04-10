@@ -14,10 +14,12 @@ export const addCategory = (category: ICategory) => {
         headers: {
             Authorization: `Bearer ${accessToken}`
         }
+
     }
     );
 }
 export const updateCategory = (category: any) => {
+    const { accessToken } = JSON.parse(localStorage.getItem('user')!)
     return instance.patch("/categorys/" + category.id, category, {
         headers: {
             Authorization: `Bearer ${accessToken}`
@@ -25,6 +27,7 @@ export const updateCategory = (category: any) => {
     });
 }
 export const removeCategory = (id: number | string) => {
+    const { accessToken } = JSON.parse(localStorage.getItem('user')!)
     return instance.delete("/categorys/" + id, {
         headers: {
             Authorization: `Bearer ${accessToken}`

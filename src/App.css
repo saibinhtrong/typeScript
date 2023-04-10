@@ -49,6 +49,7 @@
   width: auto;
   margin: auto;
   text-align: center;
+  font-family: monospace;
 }
 
 
@@ -58,7 +59,7 @@
   align-items: center;
   padding: 20px;
   background-image:
-  linear-gradient(to right bottom, rgba(231, 234, 26, 0.8), rgb(28, 62, 255, .4)),
+  linear-gradient(to right bottom, rgba(231, 234, 26, 0.8), rgba(224, 8, 8, 0.572)),
   url('');
 background-size: cover;
 background-position: top;
@@ -97,14 +98,14 @@ footer {
   align-items: center;
   padding: 10px;
   background-image:
-  linear-gradient(to right bottom, rgb(0, 0, 0), rgba(56, 56, 57, 0.4)),
+  linear-gradient(to right bottom, rgb(127, 188, 118), rgba(196, 36, 36, 0.829)),
   url('');
   color: #494747;
   border-radius: 5px;
 }
 
 .logo-page img {
-  height: 50px;
+  height: 70px;
 }
 
 .social-links a {
@@ -139,12 +140,23 @@ footer {
 .card-title :hover{
   color: #ff085e;
 }
-.btn-sigin{
+.btn-signin{
   background-color: #fff308;
   border-radius: 5px;
   padding: 5px;
-  
+  font-family: monospace;
+}
+.btn-signup{
+  background-color: #fff308;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: monospace;
+ margin-right: 20px;
 }
 .link{
   text-decoration: none;
+}
+.conatiner-login{
+  
+  width: 500px;
 }
